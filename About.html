@@ -1,0 +1,199 @@
+<!-- BEGIN Driola -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - UlpianaCars</title>
+
+    <link rel="stylesheet" href="css-styles.css">
+</head>
+
+<body class="driola-about">
+
+<!-- Scroll Progress Bar -->
+<div id="scroll-progress"></div>
+
+<!-- NAVIGATION (matches homepage exactly) -->
+<nav>
+    <div class="logo">Ulpiana<span>Cars</span></div>
+    <ul>
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="vehicles.html">Vehicles</a></li>
+        <li><a class="nav-link" href="booking.html">Booking</a></li>
+        <li><a class="nav-link active" href="about.html">About</a></li>
+        <li><a class="nav-link" href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero small-hero">
+    <h1>About UlpianaCars</h1>
+    <p>Your trusted partner in premium vehicle rentals.</p>
+</section>
+
+<!-- ABOUT SECTION -->
+<section class="info-section">
+    <h2 class="section-title">Who We Are</h2>
+    <p>
+        UlpianaCars is a premium car rental company dedicated to providing top-tier vehicles
+        and exceptional service. Our fleet includes luxury sedans, SUVs, convertibles, and 
+        more — all maintained to the highest standards.
+    </p>
+</section>
+
+<!-- MISSION -->
+<section class="info-section">
+    <h2 class="section-title">Our Mission</h2>
+    <p>
+        Our mission is simple: reliable service, transparent pricing, and unforgettable travel experiences.
+        We work hard to make every customer's journey smooth, comfortable, and stress-free.
+    </p>
+</section>
+
+<!-- SERVICES -->
+<section class="info-section">
+    <h2 class="section-title">Our Services</h2>
+    <p>We offer a variety of rental solutions designed to fit any lifestyle:</p>
+
+    <ul class="services-list">
+        <li>• Long-term vehicle rental</li>
+        <li>• Short-term & weekend rental</li>
+        <li>• Professional chauffeur service</li>
+        <li>• Airport pick-up & drop-off</li>
+        <li>• Premium insurance protection</li>
+        <li>• Luxury package rentals</li>
+        <li>• 24/7 roadside assistance</li>
+    </ul>
+</section>
+
+<!-- TEAM -->
+<section class="info-section">
+    <h2 class="section-title">Meet Our Team</h2>
+    <p>
+        Our dedicated team ensures that every customer receives personalized support 
+        from booking to vehicle return.
+    </p>
+
+    <div class="team-container">
+
+        <div class="team-card">
+            <img src="images/johnimages.jpg" alt="Team Member">
+            <h3>John Miller</h3>
+            <p>Senior Mechanic</p>
+        </div>
+
+        <div class="team-card">
+            <img src="images/elenarimage.jpg" alt="Team Member">
+            <h3>Elena Rodriguez</h3>
+            <p>Customer Service Lead</p>
+        </div>
+
+        <div class="team-card">
+            <img src="images/marcusimage.avif" alt="Team Member">
+            <h3>Marcus Lee</h3>
+            <p>Fleet Manager</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- LOCATION -->
+<section class="location-section">
+    <p class="location-subtitle">Find Us Here</p>
+    <h2 class="location-title">Our Office Location</h2>
+
+    <p class="location-text">
+        Visit us for in-person bookings, customer support, or to explore our fleet.
+    </p>
+
+    <p>Prishtine, Ulpiane St. Fehmi Lladrovci</p>
+    <p>Phone: +1 (555) 123-4567</p>
+
+    <button class="location-btn" onclick="location.href='booking.html'">Book an Appointment</button>
+</section>
+
+<!-- FOOTER (matches homepage perfectly) -->
+<footer class="new-footer">
+
+    <div class="footer-top">
+
+        <div class="footer-logo">
+            <h1>Ulpiana<span>Cars</span></h1>
+        </div>
+
+        <div class="footer-details">
+            <p>Prishtine, Ulpiane St. Fehmi Lladrovci</p>
+            <p>Phone: +1 (555) 123-4567</p>
+
+            <div class="footer-socials">
+                <a href="https://www.facebook.com" target="_blank" class="circle">f</a>
+                <a href="https://www.instagram.com" target="_blank" class="circle">IG</a>
+                <a href="https://twitter.com" target="_blank" class="circle">X</a>
+            </div>
+        </div>
+
+        <div class="footer-contact">
+            <button onclick="location.href='contact.html'">Contact Us</button>
+        </div>
+
+    </div>
+
+    <div class="footer-links-section">
+
+        <div class="footer-column">
+            <h3>About ▼</h3>
+            <ul>
+                <li><a href="about.html">Company Info</a></li>
+                <li><a href="about.html">Our Team</a></li>
+                <li><a href="about.html">Careers</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Vehicles ▼</h3>
+            <ul>
+                <li><a href="vehicles.html">Luxury Cars</a></li>
+                <li><a href="vehicles.html">SUVs</a></li>
+                <li><a href="vehicles.html">Convertibles</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <p class="footer-bottom">© 2025 UlpianaCars — Created by Driola</p>
+</footer>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="backToTop">↑</button>
+
+<!-- JAVASCRIPT -->
+<script>
+// Scroll progress bar
+window.addEventListener("scroll", () => {
+    const bar = document.getElementById("scroll-progress");
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (scrollTop / docHeight) * 100 + "%";
+});
+
+// Active nav highlight
+document.querySelectorAll("nav a").forEach(a => {
+    if (a.href.includes("about.html")) a.classList.add("active");
+});
+
+// Back to top
+const btn = document.getElementById("backToTop");
+window.addEventListener("scroll", () => {
+    btn.style.display = window.scrollY > 400 ? "block" : "none";
+});
+btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+</script>
+
+</body>
+</html>
+<!-- END Driola -->

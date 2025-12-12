@@ -1,0 +1,274 @@
+<!--MARIGONA KASTRATI BEGINS-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UlpianaCars – Booking</title>
+
+    <link rel="stylesheet" href="css-styles.css">
+</head>
+
+<body class="marigona-booking">
+
+
+<div id="scroll-progress"></div>
+
+<!-- NAVIGATION (matches index.html exactly) -->
+<nav>
+    <div class="logo">Ulpiana<span>Cars</span></div>
+    <ul>
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="vehicles.html">Vehicles</a></li>
+        <li><a class="nav-link active" href="booking.html">Booking</a></li>
+        <li><a class="nav-link" href="about.html">About</a></li>
+        <li><a class="nav-link" href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="sub-hero">
+    <h1>Book Your Vehicle</h1>
+    <p>Select your dates, preferred car type, and enter your details.</p>
+</section>
+
+<!-- MAIN BOOKING CONTAINER -->
+<div class="container">
+
+    <!-- STEPS NAVIGATION -->
+    <div class="steps">
+        <div class="step active-step" id="stepIndicator1">1. Trip Details</div>
+        <div class="step" id="stepIndicator2">2. Select Car</div>
+        <div class="step" id="stepIndicator3">3. Your Info</div>
+        <div class="step" id="stepIndicator4">4. Summary</div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div id="step1">
+        <h2>Trip Details</h2>
+
+        <label>Pick-up location</label>
+        <select id="pickup-location">
+            <option>Prishtina Airport</option>
+            <option>Prishtina City</option>
+            <option>Ferizaj</option>
+            <option>Peja</option>
+        </select>
+
+        <label>Drop-off location</label>
+        <select id="dropoff-location">
+            <option>Prishtina Airport</option>
+            <option>Prishtina City</option>
+            <option>Ferizaj</option>
+            <option>Peja</option>
+        </select>
+
+        <label>Pick-up date</label>
+        <input type="date" id="pickup-date">
+
+        <label>Drop-off date</label>
+        <input type="date" id="dropoff-date">
+
+        <button class="btn-primary" onclick="goToStep2()">Next</button>
+    </div>
+
+    <!-- STEP 2 -->
+    <div id="step2" class="hidden">
+        <h2>Select Your Car</h2>
+
+        <div class="car-option" data-price="25" onclick="selectCar(this)">
+            <strong>Compact</strong><br>€25 / day
+        </div>
+
+        <div class="car-option" data-price="45" onclick="selectCar(this)">
+            <strong>SUV</strong><br>€45 / day
+        </div>
+
+        <div class="car-option" data-price="70" onclick="selectCar(this)">
+            <strong>Luxury</strong><br>€70 / day
+        </div>
+
+        <button class="btn-primary" onclick="goToStep3()">Next</button>
+    </div>
+
+    <!-- STEP 3 -->
+    <div id="step3" class="hidden">
+        <h2>Your Information</h2>
+
+        <label>Full Name</label>
+        <input type="text" id="name" placeholder="First and Last Name" required>
+
+        <label>Email</label>
+        <input type="email" id="email" placeholder="example@domain.com" required>
+
+        <label>Phone Number</label>
+        <input type="text" id="phone" placeholder="+383 44 123 456" required>
+
+        <button class="btn-primary" onclick="goToStep4()">Next</button>
+    </div>
+
+    <!-- STEP 4 -->
+    <div id="step4" class="hidden">
+        <h2>Summary</h2>
+
+        <div class="summary-box">
+            <p><strong>Location:</strong> <span id="summary-locations">-</span></p>
+            <p><strong>Dates:</strong> <span id="summary-dates">-</span></p>
+            <p><strong>Car:</strong> <span id="summary-car">-</span></p>
+            <p><strong>Total Price:</strong> €<span id="summary-price">0</span></p>
+            <p><strong>Name:</strong> <span id="summary-name">-</span></p>
+            <p><strong>Email:</strong> <span id="summary-email">-</span></p>
+            <p><strong>Phone:</strong> <span id="summary-phone">-</span></p>
+        </div>
+
+        <button class="btn-primary" onclick="finishBooking()">Confirm Booking</button>
+    </div>
+
+    <!-- CONFIRM MESSAGE -->
+    <div id="confirmationMessage" class="hidden confirmation">
+        <strong>Booking Complete! 🎉</strong><br>
+        We will contact you soon with all details.
+        <br><br>
+        <button class="btn-primary" onclick="location.reload()">Book Another Car</button>
+    </div>
+
+</div>
+
+<!-- PARTNERS SLIDER -->
+<section class="partners-section">
+    <h2>Our Trusted Partners</h2>
+    <div class="partners-slider">
+        <div class="slider-track">
+            <img src="images/hertz.png">
+            <img src="images/avis.png">
+            <img src="images/europcar.png">
+            <img src="images/enterprise.png">
+            <img src="images/sixt.png">
+
+            <!-- Loop again for infinite scroll -->
+            <img src="images/hertz.png">
+            <img src="images/avis.png">
+            <img src="images/europcar.png">
+            <img src="images/enterprise.png">
+            <img src="images/sixt.png">
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER (matches index.html) -->
+<footer class="new-footer">
+    <div class="footer-container">
+
+        <div class="footer-top">
+            <div class="footer-logo">
+                <h1>Ulpiana<span>Cars</span></h1>
+            </div>
+
+            <div class="footer-details">
+                <p>123 Premium Road, New York, NY</p>
+                <p>Phone: +1 (555) 123-4567</p>
+            </div>
+
+            <div class="footer-contact">
+                <button onclick="window.location.href='contact.html'">Contact Us</button>
+            </div>
+        </div>
+
+        <div class="footer-links-section">
+            <div class="footer-column">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="about.html">Company Info</a></li>
+                    <li><a href="about.html">Our Team</a></li>
+                    <li><a href="about.html">Careers</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Vehicles</h3>
+                <ul>
+                    <li><a href="vehicles.html">Luxury Cars</a></li>
+                    <li><a href="vehicles.html">SUVs</a></li>
+                    <li><a href="vehicles.html">Convertibles</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="footer-bottom">© 2025 UlpianaCars — Created by Marigona Kastrati</p>
+    </div>
+</footer>
+
+
+<!-- JAVASCRIPT LOGIC -->
+<script>
+var selectedCarBox = null;
+
+function goToStep2() {
+    let pickup = pickup-date.value;
+    let dropoff = dropoff-date.value;
+
+    if (!pickup || !dropoff) return alert("Please fill both dates.");
+    if (dropoff <= pickup) return alert("Drop-off must be after pick-up.");
+
+    step1.classList.add("hidden");
+    step2.classList.remove("hidden");
+
+    stepIndicator1.classList.remove("active-step");
+    stepIndicator2.classList.add("active-step");
+}
+
+function selectCar(box) {
+    document.querySelectorAll(".car-option").forEach(o => o.classList.remove("car-selected"));
+    box.classList.add("car-selected");
+    selectedCarBox = box;
+}
+
+function goToStep3() {
+    if (!selectedCarBox) return alert("Select a car first");
+
+    step2.classList.add("hidden");
+    step3.classList.remove("hidden");
+
+    stepIndicator2.classList.remove("active-step");
+    stepIndicator3.classList.add("active-step");
+}
+
+function goToStep4() {
+    // Validate
+    if (!name.value.includes(" ")) return alert("Enter full name");
+    if (!email.value.includes("@")) return alert("Enter a valid email");
+
+    // Calculate days
+    let d1 = new Date(pickup-date.value);
+    let d2 = new Date(dropoff-date.value);
+    let days = Math.ceil((d2 - d1) / 86400000);
+
+    let pricePerDay = selectedCarBox.dataset.price;
+    let total = pricePerDay * days;
+
+    summary-locations.textContent = pickup-location.value + " → " + dropoff-location.value;
+    summary-dates.textContent = pickup-date.value + " to " + dropoff-date.value;
+    summary-car.textContent = selectedCarBox.querySelector("strong").textContent;
+    summary-price.textContent = total;
+    summary-name.textContent = name.value;
+    summary-email.textContent = email.value;
+    summary-phone.textContent = phone.value;
+
+    step3.classList.add("hidden");
+    step4.classList.remove("hidden");
+
+    stepIndicator3.classList.remove("active-step");
+    stepIndicator4.classList.add("active-step");
+}
+
+function finishBooking() {
+    step4.classList.add("hidden");
+    confirmationMessage.classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
+
+
+<!--MARIGONA KASTRATI END-->
